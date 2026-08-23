@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import random
 from collections import Counter
+from _bal import balance
 
 DOMAINS = {
   "C": "Security, compliance & identity concepts (12%)",
@@ -171,6 +172,8 @@ Q_raw = [
 
 ("M","Microsoft Purview Data Map provides:","A catalog of data assets and their lineage","A firewall","A database engine","A switch",0,"Data Map = catalog/lineage."),
 ]
+
+Q_raw = balance(Q_raw)
 
 # safety net: trim/pad to exactly 150
 print("raw count:", len(Q_raw), "domains:", dict(Counter(q[0] for q in Q_raw)))
